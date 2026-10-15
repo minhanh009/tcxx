@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm 2 - Trạm Sạc Cảm Xúc</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="station-page-bg">
+
+    <div class="station-screen-wrapper">
+        <!-- Thanh Navigation phía trên -->
+        <header class="top-nav-bar">
+            <div class="logo-area">
+                <span class="logo-icon">💙</span>
+                <div class="logo-text">
+                    <span class="logo-title">Trạm Cảm Xúc</span>
+                    <span class="logo-sub">Nơi bạn dừng lại, lắng nghe và chăm sóc chính mình.</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">🏠 Trang chủ</a>
+                <a href="map.html">🗺️ 7 Trạm hành trình</a>
+                <a href="#" onclick="openStationModal(4)">💬 Góc chia sẻ</a>
+                <a href="#" onclick="openStationModal(6)">📖 Nhật ký</a>
+                <div class="user-profile-chip">
+                    <span class="user-avatar">👧</span>
+                    <span id="welcome-user-name">Xin chào, minhanh</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Quay lại & Tiêu đề Trạm 2 -->
+        <div class="station-header-center">
+            <a href="map.html" class="back-link">← Quay lại Bản đồ trạm</a>
+            <span class="station-badge">Trạm Sạc</span>
+            <h1 class="station-main-title">Trạm Sạc – nơi bạn được phép trút hết mọi điều</h1>
+            <p class="station-sub-desc">Không ai đọc những gì bạn viết ở đây trừ chính bạn. Cứ viết thật tự nhiên, không
+                cần đúng ngữ pháp, không cần logic.</p>
+        </div>
+
+        <!-- Khung nhập văn bản trút bỏ cảm xúc -->
+        <div class="dump-box-container">
+            <textarea id="emotion-dump-input" class="emotion-textarea"
+                placeholder="Hôm nay bạn gặp chuyện gì khó chịu? Hãy viết hết ra đây để trút bỏ gánh nặng trong lòng..."></textarea>
+
+            <!-- Câu danh ngôn / lời nhắn -->
+            <blockquote class="advice-quote center-quote">
+                “Khi nỗi lo được viết thành chữ, nó thường bớt mơ hồ và đáng sợ hơn một chút.”
+            </blockquote>
+
+            <!-- Các nút thao tác -->
+            <div class="station2-actions">
+                <button class="btn-action btn-danger-shred" onclick="shredEmotionText()">
+                    🗑️ Xé bỏ (Xóa sạch)
+                </button>
+                <button class="btn-action btn-success-save" onclick="saveToJournal()">
+                    📖 Lưu vào Nhật ký
+                </button>
+            </div>
+
+            <!-- Nút chuyển tới trạm tiếp theo -->
+            <div class="next-journey-bar">
+                <button class="btn-goto-next" onclick="goToNextStationFrom2()">
+                    Tôi muốn nạp lại năng lượng ➔
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

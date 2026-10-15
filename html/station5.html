@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm 5 - Thư viện kiến thức</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="station-page-bg">
+
+    <div class="station-screen-wrapper">
+        <!-- Thanh Navigation phía trên -->
+        <header class="top-nav-bar">
+            <div class="logo-area">
+                <span class="logo-icon">💙</span>
+                <div class="logo-text">
+                    <span class="logo-title">Trạm Cảm Xúc</span>
+                    <span class="logo-sub">Nơi bạn dừng lại, lắng nghe và chăm sóc chính mình.</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">🏠 Trang chủ</a>
+                <a href="map.html">🗺️ 7 Trạm hành trình</a>
+                <a href="station4.html">💬 Góc chia sẻ</a>
+                <a href="#" onclick="openStationModal(6)">📖 Nhật ký</a>
+                <div class="user-profile-chip">
+                    <span class="user-avatar">👧</span>
+                    <span id="welcome-user-name">Xin chào, minhanh</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Quay lại & Tiêu đề Trạm 5 -->
+        <div class="station-header-center">
+            <a href="map.html" class="back-link">← Quay lại Trang chủ</a>
+            <span class="station-badge">Trạm 5</span>
+            <h1 class="station-main-title blue-title" style="text-transform: uppercase; letter-spacing: 1px;">THƯ VIỆN
+                KIẾN THỨC</h1>
+            <p class="station-sub-desc">Hiểu biết là sức mạnh. Trang bị kiến thức để tự làm dịu chính mình.</p>
+        </div>
+
+        <!-- THANH TÌM KIẾM BÀI VIẾT -->
+        <div class="search-container" style="max-width: 500px; margin: 0 auto 30px auto; position: relative;">
+            <input type="text" id="library-search-input" onkeyup="filterArticles()"
+                placeholder="🔍 Tìm kiếm bài viết..."
+                style="width: 100%; padding: 12px 20px; border-radius: 30px; border: 1px solid #bfdbfe; background: rgba(255, 255, 255, 0.9); outline: none; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+        </div>
+
+        <!-- DANH SÁCH THẺ BÀI VIẾT (LƯỚI 2 CỘT) -->
+        <div class="article-grid-container" id="article-grid">
+            <!-- Bài viết 1 -->
+            <div class="article-card" onclick="openArticleDetail(1)">
+                <h3 class="article-title">Cảm xúc tiêu cực là gì và vì sao chúng xuất hiện?</h3>
+                <p class="article-snippet">Cảm xúc tiêu cực (buồn, lo âu, tức giận, căng thẳng...) không phải là "kẻ
+                    thù" cần loại bỏ mà là tín hiệu tự nhiên của cơ thể, cho biết có điều gì đó cần được chú ý...</p>
+                <span class="read-more-link">Đọc tiếp →</span>
+            </div>
+
+            <!-- Bài viết 2 -->
+            <div class="article-card" onclick="openArticleDetail(2)">
+                <h3 class="article-title">Mô hình điều tiết cảm xúc 5 bước (Gross)</h3>
+                <p class="article-snippet">Nhà tâm lý học James Gross đề xuất mô hình gồm 5 bước để điều tiết cảm xúc:
+                    (1) Lựa chọn tình huống – chủ động tránh hoặc tìm đến hoàn cảnh phù hợp; (2) Thay đổi tình huống...
+                </p>
+                <span class="read-more-link">Đọc tiếp →</span>
+            </div>
+
+            <!-- Bài viết 3 -->
+            <div class="article-card" onclick="openArticleDetail(3)">
+                <h3 class="article-title">Kỹ thuật tái cấu trúc nhận thức – mô hình ABC</h3>
+                <p class="article-snippet">Mô hình ABC trong liệu pháp nhận thức – hành vi (CBT) chỉ ra rằng: A
+                    (Activating event – sự kiện) không trực tiếp gây ra C (Consequence – cảm xúc/hành vi), mà thông qua
+                    B...</p>
+                <span class="read-more-link">Đọc tiếp →</span>
+            </div>
+
+            <!-- Bài viết 4 -->
+            <div class="article-card" onclick="openArticleDetail(4)">
+                <h3 class="article-title">Vì sao giấc ngủ ảnh hưởng trực tiếp đến cảm xúc?</h3>
+                <p class="article-snippet">Thiếu ngủ làm giảm hoạt động của vỏ não trước trán (vùng kiểm soát lý trí, ra
+                    quyết định) trong khi lại tăng phản ứng của hạnh nhân (amygdala - trung tâm cảm xúc)...</p>
+                <span class="read-more-link">Đọc tiếp →</span>
+            </div>
+
+            <!-- Bài viết 5 -->
+            <div class="article-card" onclick="openArticleDetail(5)">
+                <h3 class="article-title">Quản lý thời gian để giảm áp lực deadline</h3>
+                <p class="article-snippet">Áp lực deadline thường không đến từ khối lượng công việc mà từ cảm giác mất
+                    kiểm soát về thời gian. Kỹ thuật Pomodoro (làm việc 25 phút, nghỉ 5 phút) giúp giảm cảm giác quá
+                    tải...</p>
+                <span class="read-more-link">Đọc tiếp →</span>
+            </div>
+
+            <!-- Bài viết 6 -->
+            <div class="article-card" onclick="openArticleDetail(6)">
+                <h3 class="article-title">Khi nào cảm xúc tiêu cực cần được hỗ trợ chuyên nghiệp?</h3>
+                <p class="article-snippet">Cảm xúc tiêu cực là bình thường, nhưng cần tìm hỗ trợ chuyên nghiệp nếu cảm
+                    giác buồn lo kéo dài trên 2 tuần liên tục, ảnh hưởng nghiêm trọng đến ăn uống, giấc ngủ...</p>
+                <span class="read-more-link">Đọc tiếp →</span>
+            </div>
+        </div>
+
+        <!-- KHUNG HIỂN THỊ CHI TIẾT BÀI VIẾT (MẶC ĐỊNH ẨN) -->
+        <div id="article-detail-box"
+            style="display: none; background: rgba(239, 246, 255, 0.95); border: 1px solid #bfdbfe; border-radius: 20px; padding: 30px; margin-top: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.06);">
+            <h2 id="detail-title" style="color: #1e3a8a; font-size: 1.4rem; font-weight: 700; margin-bottom: 15px;">
+            </h2>
+            <p id="detail-content" style="color: #334155; font-size: 1rem; line-height: 1.7; white-space: pre-line;">
+            </p>
+            <div style="text-align: center; margin-top: 25px;">
+                <button onclick="closeArticleDetail()"
+                    style="background: none; border: none; color: #2563eb; font-weight: 700; font-size: 1rem; cursor: pointer;">←
+                    Quay lại</button>
+            </div>
+        </div>
+
+        <!-- NÚT ĐIỀU HƯỚNG SANG TRẠM 6 -->
+        <div style="text-align: center; margin: 40px 0;">
+            <button onclick="goToNextStationFrom5()"
+                style="background: #3b82f6; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); transition: 0.2s;">
+                Tiếp tục hành trình đến Trạm 6 ➔
+            </button>
+        </div>
+
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

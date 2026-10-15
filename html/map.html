@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm Cảm Xúc - Bản đồ 7 Trạm Hành Trình</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="map-body-bg">
+
+    <div class="map-screen-wrapper">
+        <!-- Thanh Navigation phía trên -->
+        <header class="top-nav-bar">
+            <div class="logo-area">
+                <span class="logo-icon">💙</span>
+                <div class="logo-text">
+                    <span class="logo-title">Trạm Cảm Xúc</span>
+                    <span class="logo-sub">Nơi bạn dừng lại, lắng nghe và chăm sóc chính mình.</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">🏠 Trang chủ</a>
+                <a href="#" class="active-link">🗺️ 7 Trạm hành trình</a>
+                <a href="#" onclick="openStationModal(4)">💬 Góc chia sẻ</a>
+                <a href="#" onclick="openStationModal(6)">📖 Nhật ký</a>
+                <div class="user-profile-chip">
+                    <span class="user-avatar">👧</span>
+                    <span id="welcome-user-name">Xin chào, Lan</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Thẻ chào mừng nhỏ gọn ở góc trái -->
+        <div class="welcome-card-left">
+            <span class="sun-emoji-small">☀️</span>
+            <div class="greeting-text-mini">
+                <h3 id="dynamic-greeting-title">Chào buổi sáng, Lan!</h3>
+                <p>Hôm nay là một ngày mới, bạn đang làm rất tốt.</p>
+            </div>
+        </div>
+
+        <!-- Tiêu đề hành trình ở chính giữa -->
+        <div class="central-title-banner">
+            <h1 class="script-title-map">Hành trình 7 trạm cảm xúc</h1>
+            <p class="journey-quote">“Cảm xúc của bạn là một phần quan trọng tạo lên con người bạn”</p>
+        </div>
+
+        <!-- BẢN ĐỒ 7 TRẠM DẠNG BIỂN GỖ PHỦ KÍN MÀN HÌNH -->
+        <div class="wooden-map-container">
+
+            <!-- Trạm 1 -->
+            <div class="wooden-sign station-1" onclick="openStationModal(1)">
+                <div class="sign-board">Nhận diện cảm xúc</div>
+                <div class="sign-post"></div>
+            </div>
+
+            <!-- Trạm 2 -->
+            <div class="wooden-sign station-2" onclick="openStationModal(2)">
+                <div class="sign-board">Sạc cảm xúc tiêu cực</div>
+                <div class="sign-post"></div>
+            </div>
+
+            <!-- Trạm 3 -->
+            <div class="wooden-sign station-3" onclick="openStationModal(3)">
+                <div class="sign-board">Tích năng lượng</div>
+                <div class="sign-post"></div>
+            </div>
+
+            <!-- Trạm 4 -->
+            <div class="wooden-sign station-4" onclick="openStationModal(4)">
+                <div class="sign-board">Góc chia sẻ</div>
+                <div class="sign-post"></div>
+            </div>
+
+            <!-- Trạm 5 -->
+            <div class="wooden-sign station-5" onclick="openStationModal(5)">
+                <div class="sign-board">Thư viện kiến thức</div>
+                <div class="sign-post"></div>
+            </div>
+
+            <!-- Trạm 6 -->
+            <div class="wooden-sign station-6" onclick="openStationModal(6)">
+                <div class="sign-board">Nhật ký cảm xúc</div>
+                <div class="sign-post"></div>
+            </div>
+
+            <!-- Trạm 7 -->
+            <div class="wooden-sign station-7" onclick="openStationModal(7)">
+                <div class="sign-board">Trạm SOS</div>
+                <div class="sign-post"></div>
+            </div>
+
+            <!-- Khung Nhắc Nhở ở góc dưới -->
+            <div class="reminder-card-bottom" onclick="openStationModal(6)">
+                <div class="reminder-content">
+                    <span class="reminder-title">Nhắc nhở</span>
+                    <p>Đã lâu rồi bạn chưa ghé Nhật ký cảm xúc<br>Hãy dành vài phút để lắng nghe cảm xúc của mình nhé!
+                    </p>
+                </div>
+                <div class="arrow-icon">➔</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

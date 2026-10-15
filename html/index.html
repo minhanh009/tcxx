@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm Cảm Xúc - Trang Chủ</title>
+    <!-- Đường dẫn CSS theo yêu cầu -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google Fonts cho font chữ viết tay và font không chân -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- TRANG CHỦ -->
+    <div id="welcome-screen" class="screen active">
+
+        <!-- Thanh Navigation phía trên theo đúng thiết kế slide -->
+        <header class="top-nav-bar">
+            <div class="logo-area">
+                <span class="logo-icon">💙</span>
+                <div class="logo-text">
+                    <span class="logo-title">Trạm Cảm Xúc</span>
+                    <span class="logo-sub">Nơi bạn dừng lại, lắng nghe và chăm sóc chính mình.</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active-link">🏠 Trang chủ</a>
+                <a href="#" onclick="goToMap()">🗺️ 7 Trạm hành trình</a>
+                <a href="#" onclick="openStationModal(4)">💬 Góc chia sẻ</a>
+                <a href="#" onclick="openStationModal(6)">📖 Nhật ký</a>
+                <button class="btn-login-nav" onclick="goToAuthScreen()">👤 Đăng nhập/ Đăng ký</button>
+            </nav>
+        </header>
+
+        <!-- Nội dung chính giữa đè trực tiếp lên background -->
+        <div class="hero-content-center">
+            <h1 class="script-title">Trạm Cảm Xúc</h1>
+            <p class="slogan-text">Nơi bạn dừng lại, lắng nghe và chăm sóc chính mình.</p>
+            <p class="desc-text">
+                Là sinh viên, đôi khi bạn phải mang trên vai rất nhiều thứ cùng lúc – deadline, kỳ vọng, các mối quan
+                hệ, và cả những cảm xúc chưa kịp gọi tên. Trạm Cảm Xúc được tạo ra để bạn có một nơi dừng chân: nhận
+                diện điều mình đang cảm thấy, giải tỏa nó một cách lành mạnh, và tìm lại năng lượng để tiếp tục hành
+                trình.
+            </p>
+
+            <!-- 2 Nút bấm đúng thiết kế trong slide -->
+            <div class="hero-buttons-row">
+                <button class="btn-custom btn-start" onclick="handleStartJourney()">
+                    <span class="icon">▶</span> Bắt đầu hành trình
+                </button>
+                <button class="btn-custom btn-explore" onclick="goToMap()">
+                    <span class="icon">✈️</span> Khám phá các trạm
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ (Ẩn ban đầu) -->
+    <div id="auth-screen" class="screen">
+        <div class="auth-container">
+            <h2>Đăng nhập / Tham gia ẩn danh</h2>
+            <p class="auth-subtitle">Giải tỏa rào cản sợ lộ danh tính hay thu thập dữ liệu cá nhân. Lối đi tắt an toàn
+                để tiếp cận công cụ hỗ trợ.</p>
+            <form onsubmit="handleAuthSubmit(event)">
+                <div class="form-group">
+                    <label>Tên đăng ký hoặc Biệt danh</label>
+                    <input type="text" id="nickname-input" placeholder="Nhập tên hoặc biệt danh của bạn..." required>
+                </div>
+                <div class="form-group">
+                    <label>Email của bạn (Tùy chọn)</label>
+                    <input type="email" id="email-input" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <input type="password" id="password-input" placeholder="••••••••" required>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Ghi nhớ mật khẩu cho lần sau</label>
+                </div>
+                <button type="submit" class="btn-primary full-width">Vào bản đồ 7 trạm</button>
+                <button type="button" class="btn-anonymous full-width" onclick="loginAnonymous()">Tiếp tục dạng Ẩn danh
+                    hoàn toàn</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Đường dẫn JS theo yêu cầu -->
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

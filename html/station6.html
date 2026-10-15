@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm 6 - Nhật ký cảm xúc</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="station-page-bg">
+
+    <div class="station-screen-wrapper">
+        <!-- Thanh Navigation phía trên -->
+        <header class="top-nav-bar">
+            <div class="logo-area">
+                <span class="logo-icon">💙</span>
+                <div class="logo-text">
+                    <span class="logo-title">Trạm Cảm Xúc</span>
+                    <span class="logo-sub">Nơi bạn dừng lại, lắng nghe và chăm sóc chính mình.</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">🏠 Trang chủ</a>
+                <a href="map.html">🗺️ 7 Trạm hành trình</a>
+                <a href="station4.html">💬 Góc chia sẻ</a>
+                <a href="station6.html" class="active-nav">📖 Nhật ký</a>
+                <div class="user-profile-chip">
+                    <span class="user-avatar">👧</span>
+                    <span id="welcome-user-name">Xin chào, minhanh</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Tiêu đề Trạm 6 -->
+        <div class="station-header-center">
+            <a href="map.html" class="back-link">← Quay lại Trang chủ</a>
+            <span class="station-badge">Trạm 6</span>
+            <h1 class="station-main-title blue-title">Nhật ký cảm xúc</h1>
+            <p class="station-sub-desc">Ngày hôm nay của bạn như thế nào? Cùng dành vài phút xem lại nhé.</p>
+        </div>
+
+        <!-- FORM ĐIỀN NHẬT KÝ -->
+        <div class="journal-form-card"
+            style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 30px; box-shadow: 0 8px 30px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto 30px auto;">
+
+            <!-- 1. Chọn cảm xúc hôm nay -->
+            <div class="journal-section" style="margin-bottom: 25px;">
+                <h3 style="color: #1e3a8a; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px;">Hôm nay tôi cảm
+                    thấy...</h3>
+                <p style="color: #64748b; font-size: 0.85rem; margin-bottom: 15px;">Có thể chọn 1 hoặc nhiều cảm xúc</p>
+
+                <div class="emotion-select-row"
+                    style="display: flex; gap: 12px; justify-content: space-between; flex-wrap: wrap;">
+                    <button class="emo-btn"
+                        onclick="toggleJournalEmotion(this, 'Ổn / Bình thường')"><span>😊</span><br><small>Ổn / Bình
+                            thường</small></button>
+                    <button class="emo-btn"
+                        onclick="toggleJournalEmotion(this, 'Buồn bã')"><span>😭</span><br><small>Buồn
+                            bã</small></button>
+                    <button class="emo-btn"
+                        onclick="toggleJournalEmotion(this, 'Tức giận')"><span>😡</span><br><small>Tức
+                            giận</small></button>
+                    <button class="emo-btn" onclick="toggleJournalEmotion(this, 'Cô đơn')"><span>😐</span><br><small>Cô
+                            đơn</small></button>
+                    <button class="emo-btn"
+                        onclick="toggleJournalEmotion(this, 'Tự ti / So sánh')"><span>🥺</span><br><small>Tự ti / So
+                            sánh</small></button>
+                    <button class="emo-btn" onclick="toggleJournalEmotion(this, 'Lo âu')"><span>😰</span><br><small>Lo
+                            âu</small></button>
+                    <button class="emo-btn"
+                        onclick="toggleJournalEmotion(this, 'Căng thẳng / Áp lực')"><span>😫</span><br><small>Căng thẳng
+                            / Áp lực</small></button>
+                </div>
+            </div>
+
+            <!-- 2. Mức độ cảm xúc (Thanh trượt 1 - 10) -->
+            <div class="journal-section" style="margin-bottom: 25px;">
+                <h3 style="color: #1e3a8a; font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;">Mức độ cảm xúc:
+                    <span id="intensity-val-display" style="color: #2563eb;">5</span>/10</h3>
+                <input type="range" id="journal-intensity-range" min="1" max="10" value="5"
+                    oninput="document.getElementById('intensity-val-display').innerText = this.value"
+                    style="width: 100%; cursor: pointer;">
+                <div
+                    style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #64748b; margin-top: 5px;">
+                    <span>1 (Rất thấp)</span>
+                    <span>10 (Rất cao)</span>
+                </div>
+            </div>
+
+            <!-- 3. Nguyên nhân -->
+            <div class="journal-section" style="margin-bottom: 25px;">
+                <h3 style="color: #1e3a8a; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">Điều gì khiến bạn
+                    cảm thấy như vậy?</h3>
+                <textarea id="journal-reason-input"
+                    placeholder="Gợi ý: học tập / gia đình / bạn bè / tài chính / sức khỏe / khác..."
+                    style="width: 100%; height: 80px; padding: 12px; border-radius: 12px; border: 1px solid #bfdbfe; background: #eff6ff; outline: none; font-size: 0.9rem; resize: vertical;"></textarea>
+            </div>
+
+            <!-- 4. Cách đối mặt -->
+            <div class="journal-section" style="margin-bottom: 25px;">
+                <h3 style="color: #1e3a8a; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">Bạn đã làm gì để
+                    đối mặt?</h3>
+                <select id="journal-action-select"
+                    style="width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #bfdbfe; background: #eff6ff; outline: none; font-size: 0.9rem; color: #1e293b;">
+                    <option value="Đi bộ 5 phút không mang điện thoại">🚶 Đi bộ 5 phút không mang điện thoại</option>
+                    <option value="Viết 3 điều biết ơn">✍️ Viết 3 điều biết ơn</option>
+                    <option value="Quy tắc 20 - 20 - 20 cho mắt và đầu óc">👀 Quy tắc 20 - 20 - 20 cho mắt và đầu óc
+                    </option>
+                    <option value="Vươn vai và thả lỏng cơ thể">🧘 Vươn vai và thả lỏng cơ thể</option>
+                </select>
+            </div>
+
+            <!-- 5. Điều biết ơn -->
+            <div class="journal-section" style="margin-bottom: 20px;">
+                <h3 style="color: #1e3a8a; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">Điều tôi biết ơn
+                    hôm nay</h3>
+                <input type="text" id="journal-gratitude-input"
+                    placeholder="Hãy viết 1 - 3 điều khiến bạn cảm thấy biết ơn..."
+                    style="width: 100%; padding: 12px; border-radius: 10px; border: none; background: #000066; color: white; outline: none; font-size: 0.9rem;">
+            </div>
+
+            <!-- 6. Mong muốn ngày mai -->
+            <div class="journal-section" style="margin-bottom: 25px;">
+                <h3 style="color: #1e3a8a; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">Ngày mai tôi
+                    muốn...</h3>
+                <input type="text" id="journal-tomorrow-input" placeholder="Một mong muốn / dự định nhỏ cho ngày mai..."
+                    style="width: 100%; padding: 12px; border-radius: 10px; border: none; background: #000066; color: white; outline: none; font-size: 0.9rem;">
+            </div>
+
+            <!-- Nút Lưu -->
+            <div style="text-align: right;">
+                <button onclick="saveJournalEntry()"
+                    style="background: #3b82f6; color: white; border: none; padding: 10px 35px; border-radius: 25px; font-weight: 700; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                    Lưu
+                </button>
+            </div>
+        </div>
+
+        <!-- THÔNG BÁO SAU KHI HOÀN THÀNH (MẶC ĐỊNH ẨN) -->
+        <div id="journal-finish-box" style="display: none; text-align: center; margin: 40px auto; max-width: 800px;">
+            <p style="font-family: 'Caveat', cursive; font-size: 2rem; color: #1e3a8a; margin-bottom: 30px;">
+                Bạn vừa dành thời gian để hiểu chính mình hơn một chút — điều đó không hề nhỏ. ✨
+            </p>
+
+            <!-- Khung thống kê tuần -->
+            <div
+                style="background: rgba(239, 246, 255, 0.9); border: 1px solid #bfdbfe; border-radius: 20px; padding: 25px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 280px; text-align: left;">
+                    <h4 style="color: #1e3a8a; font-weight: 700; font-size: 1.1rem; margin-bottom: 15px;">📊 Thống kê
+                        tuần này</h4>
+                    <!-- Giả lập biểu đồ cột -->
+                    <div
+                        style="display: flex; gap: 10px; align-items: flex-end; height: 120px; padding-bottom: 10px; border-bottom: 2px solid #cbd5e1;">
+                        <div style="flex: 1; background: #f43f5e; height: 70%; border-radius: 4px;" title="Thứ 2"></div>
+                        <div style="flex: 1; background: #fbbf24; height: 85%; border-radius: 4px;" title="Thứ 3"></div>
+                        <div style="flex: 1; background: #3b82f6; height: 50%; border-radius: 4px;" title="Thứ 4"></div>
+                        <div style="flex: 1; background: #f43f5e; height: 90%; border-radius: 4px;" title="Thứ 5"></div>
+                        <div style="flex: 1; background: #a855f7; height: 95%; border-radius: 4px;" title="Thứ 6"></div>
+                        <div style="flex: 1; background: #f43f5e; height: 40%; border-radius: 4px;" title="Thứ 7"></div>
+                    </div>
+                </div>
+
+                <div style="flex: 1; min-width: 250px; text-align: left;">
+                    <p style="font-family: 'Caveat', cursive; font-size: 1.6rem; color: #1e3a8a; line-height: 1.4;">
+                        Tuần này bạn ghé Trạm Tích năng lượng thường xuyên hơn — bạn đang chăm sóc bản thân rất tốt! 💙
+                    </p>
+                </div>
+            </div>
+
+            <!-- Nút Chuyển sang Trạm 7 -->
+            <div style="margin-top: 35px;">
+                <button onclick="goToNextStationFrom6()"
+                    style="background: #3b82f6; color: white; border: none; padding: 14px 35px; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);">
+                    Tiếp tục hành trình đến Trạm 7 ➔
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

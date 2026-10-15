@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm 1 - Nhận diện cảm xúc</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="station-page-bg">
+
+    <div class="station-screen-wrapper">
+        <!-- Thanh Navigation phía trên -->
+        <header class="top-nav-bar">
+            <div class="logo-area">
+                <span class="logo-icon">💙</span>
+                <div class="logo-text">
+                    <span class="logo-title">Trạm Cảm Xúc</span>
+                    <span class="logo-sub">Nơi bạn dừng lại, lắng nghe và chăm sóc chính mình.</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">🏠 Trang chủ</a>
+                <a href="map.html">🗺️ 7 Trạm hành trình</a>
+                <a href="#" onclick="openStationModal(4)">💬 Góc chia sẻ</a>
+                <a href="#" onclick="openStationModal(6)">📖 Nhật ký</a>
+                <div class="user-profile-chip">
+                    <span class="user-avatar">👧</span>
+                    <span id="welcome-user-name">Xin chào, minhanh</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Tiêu đề Trạm 1 -->
+        <div class="station-header-center">
+            <span class="station-badge">Trạm nhận diện cảm xúc</span>
+            <h1 class="station-main-title">Bây giờ, bạn đang cảm thấy như thế nào?</h1>
+            <p class="station-sub-desc">Không có cảm xúc nào là tiêu cực. Hãy dành 30 giây để gọi tên điều bạn đang cảm
+                thấy – chỉ vậy thôi cũng là một bước tiến rồi.</p>
+        </div>
+
+        <!-- 7 Thẻ chọn cảm xúc (Linh hoạt khi bấm) -->
+        <div class="emotion-cards-grid">
+            <div class="emotion-card" onclick="selectEmotion(this, 'Buồn bã', 'Cảm giác trống vắng, cần được ôm ấp')">
+                <span class="emo-icon">☁️</span>
+                <div class="emo-info">
+                    <h4>Buồn bã</h4>
+                    <p>Cảm trống vắng</p>
+                </div>
+            </div>
+            <div class="emotion-card active"
+                onclick="selectEmotion(this, 'Lo âu', 'Cơ thể đang phản ứng với điều gì đó chưa chắc chắn. Hãy thử chậm lại một chút.')"
+                id="default-selected">
+                <span class="emo-icon">🌀</span>
+                <div class="emo-info">
+                    <h4>Lo âu</h4>
+                    <p>Bồn chồn, chưa chắc chắn</p>
+                </div>
+            </div>
+            <div class="emotion-card"
+                onclick="selectEmotion(this, 'Tức giận', 'Năng lượng đang dồn nén. Hãy hít sâu và tìm cách xả bớt áp lực ra ngoài.')">
+                <span class="emo-icon">🔥</span>
+                <div class="emo-info">
+                    <h4>Tức giận</h4>
+                    <p>Căng thẳng, bực bội</p>
+                </div>
+            </div>
+            <div class="emotion-card"
+                onclick="selectEmotion(this, 'Căng thẳng/Áp lực', 'Deadline hay kỳ vọng đang đè nặng. Đừng quên bạn đã cố gắng rất nhiều rồi.')">
+                <span class="emo-icon">⏳</span>
+                <div class="emo-info">
+                    <h4>Căng thẳng/Áp lực</h4>
+                    <p>Áp lực công việc, học tập</p>
+                </div>
+            </div>
+            <div class="emotion-card"
+                onclick="selectEmotion(this, 'Cô đơn', 'Cảm giác lạc lõng giữa đám đông là điều hết sức bình thường. Hãy kết nối lại với chính mình.')">
+                <span class="emo-icon">🌙</span>
+                <div class="emo-info">
+                    <h4>Cô đơn</h4>
+                    <p>Lạc lõng, thiếu sự đồng tình</p>
+                </div>
+            </div>
+            <div class="emotion-card"
+                onclick="selectEmotion(this, 'Tự ti, áp lực so sánh', 'Mỗi đóa hoa đều nở vào thời gian riêng của nó. Bạn đang đi trên chặng đường của chính bạn.')">
+                <span class="emo-icon">⚖️</span>
+                <div class="emo-info">
+                    <h4>Tự ti, áp lực so sánh</h4>
+                    <p>So sánh năng lực, học tập</p>
+                </div>
+            </div>
+            <div class="emotion-card wide-card"
+                onclick="selectEmotion(this, 'Ổn/ Bình thường', 'Một ngày bình yên cũng là một ngày tuyệt vời. Tận hưởng sự cân bằng này nhé!')">
+                <span class="emo-icon">🌿</span>
+                <div class="emo-info">
+                    <h4>Ổn/ Bình thường</h4>
+                    <p>Cân bằng, yên bình</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần chọn mức độ cảm xúc (Động theo cảm xúc đã chọn) -->
+        <div class="intensity-section">
+            <h3 class="intensity-question">Cảm xúc này đang ở mức độ nào với bạn?</h3>
+            <p class="selected-tag-info">✦ Đã chọn: <span id="current-selected-emo">Lo âu</span></p>
+
+            <div class="intensity-list" id="intensity-list-container">
+                <label class="intensity-item" onclick="selectIntensity(this, 1)">
+                    <span class="level-num">1</span>
+                    <span class="level-text">Thoáng qua, không đáng kể</span>
+                    <input type="radio" name="intensity" value="1">
+                </label>
+                <label class="intensity-item" onclick="selectIntensity(this, 2)">
+                    <span class="level-num">2</span>
+                    <span class="level-text">Có nhận thấy nhưng vẫn kiểm soát được</span>
+                    <input type="radio" name="intensity" value="2">
+                </label>
+                <label class="intensity-item active-level" onclick="selectIntensity(this, 3)" id="default-intensity">
+                    <span class="level-num">3</span>
+                    <span class="level-text">Khá rõ ràng, ảnh hưởng đến sự tập trung</span>
+                    <input type="radio" name="intensity" value="3" checked>
+                </label>
+                <label class="intensity-item" onclick="selectIntensity(this, 4)">
+                    <span class="level-num">4</span>
+                    <span class="level-text">Mạnh, khó tập trung làm việc khác</span>
+                    <input type="radio" name="intensity" value="4">
+                </label>
+                <label class="intensity-item" onclick="selectIntensity(this, 5)">
+                    <span class="level-num">5</span>
+                    <span class="level-text">Rất mạnh, cảm thấy quá tải / Không thể kiểm soát được</span>
+                    <input type="radio" name="intensity" value="5">
+                </label>
+            </div>
+        </div>
+
+        <!-- Khung lời nhắn & gợi ý thay đổi linh hoạt theo cảm xúc -->
+        <div class="advice-card-box">
+            <div class="advice-title-sparkle">LỜI NHẮN GỬI CHO BẠN ⚡</div>
+            <blockquote class="advice-quote" id="dynamic-advice-quote">
+                “Cơ thể bạn đang phản ứng với điều gì đó chưa chắc chắn. Hãy thử chậm lại một chút.”
+            </blockquote>
+
+            <div class="next-station-box">
+                <div class="next-station-info">
+                    <span class="next-label">TRẠM GỢI Ý TIẾP THEO</span>
+                    <h4 id="recommended-station-title">Trạm Tích năng lượng</h4>
+                    <p id="recommended-station-desc">Thực hiện bài tập hít thở giúp làm dịu hệ thần kinh.</p>
+                </div>
+                <button class="btn-next-station" onclick="goToNextStation()">
+                    Đồng ý, chuyển tới trạm này ➔
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

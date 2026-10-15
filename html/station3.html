@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm 3 - Nạp lại năng lượng cho chính mình</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="station-page-bg">
+
+    <div class="station-screen-wrapper">
+        <!-- Thanh Navigation phía trên -->
+        <header class="top-nav-bar">
+            <div class="logo-area">
+                <span class="logo-icon">💙</span>
+                <div class="logo-text">
+                    <span class="logo-title">Trạm Cảm Xúc</span>
+                    <span class="logo-sub">Nơi bạn dừng lại, lắng nghe và chăm sóc chính mình.</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">🏠 Trang chủ</a>
+                <a href="map.html">🗺️ 7 Trạm hành trình</a>
+                <a href="#" onclick="openStationModal(4)">💬 Góc chia sẻ</a>
+                <a href="#" onclick="openStationModal(6)">📖 Nhật ký</a>
+                <div class="user-profile-chip">
+                    <span class="user-avatar">👧</span>
+                    <span id="welcome-user-name">Xin chào, minhanh</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Quay lại & Tiêu đề Trạm 3 -->
+        <div class="station-header-center">
+            <a href="map.html" class="back-link">← Quay lại Bản đồ trạm</a>
+            <span class="station-badge">Trạm tích năng lượng</span>
+            <h1 class="station-main-title green-title">Nạp lại năng lượng cho chính mình</h1>
+            <p class="station-sub-desc">Chọn một hoạt động phù hợp với thời gian bạn đang có – chỉ vài phút thôi cũng đủ
+                tạo khác biệt.</p>
+        </div>
+
+        <!-- DANH SÁCH BÀI TẬP NẠP NĂNG LƯỢNG -->
+        <div class="energy-grid">
+            <!-- Bài tập 1: Thở 4 - 7 - 8 -->
+            <div class="energy-card active-card" id="card-478" onclick="selectBreathingExercise('478')">
+                <div class="card-icon">🌬️</div>
+                <div class="card-content">
+                    <h3>Thở 4 – 7 – 8</h3>
+                    <span class="duration-tag">2 phút</span>
+                    <p>Làm chậm nhịp tim và giảm cảm giác lo âu tức thời</p>
+                </div>
+            </div>
+
+            <!-- Bài tập 2: Thở hộp -->
+            <div class="energy-card" id="card-box" onclick="selectBreathingExercise('box')">
+                <div class="card-icon">🧘‍♀️</div>
+                <div class="card-content">
+                    <h3>Thở hộp – Box breathing</h3>
+                    <span class="duration-tag">2 phút</span>
+                    <p>Giữ bình tĩnh trong áp lực cao – rất phù hợp trước khi thi hoặc thuyết trình.</p>
+                </div>
+            </div>
+
+            <!-- Bài tập 3: Grounding -->
+            <div class="energy-card" id="card-grounding" onclick="selectBreathingExercise('grounding')">
+                <div class="card-icon">🧠</div>
+                <div class="card-content">
+                    <h3>Grounding 5 – 4 – 3 – 2 – 1</h3>
+                    <span class="duration-tag">3 phút</span>
+                    <p>Kéo tâm trí về hiện tại khi đang hoảng loạn</p>
+                </div>
+            </div>
+
+            <!-- Bài tập 4: Vươn vai -->
+            <div class="energy-card" id="card-stretch"
+                onclick="selectSimpleExercise('Vươn vai và thả lỏng cơ thể', '1 phút', 'Căng thẳng tích tụ ở cơ bắp. Hãy vươn cao tay, hít sâu và từ từ thả lỏng vai xuống.', event)">
+                <div class="card-icon">🤸‍♀️</div>
+                <div class="card-content">
+                    <h3>Vươn vai và thả lỏng cơ thể</h3>
+                    <span class="duration-tag">1 phút</span>
+                    <p>Căng thẳng tích tụ ở cơ bắp. Hãy giải phóng nó.</p>
+                </div>
+            </div>
+
+            <!-- Bài tập 5: Quy tắc 20-20-20 -->
+            <div class="energy-card" id="card-rule20"
+                onclick="selectSimpleExercise('Quy tắc 20 – 20 – 20 cho mắt', '20 giây', 'Nhìn ra một vật ở xa khoảng 6 mét trong vòng 20 giây để giảm điều tiết cho cơ mắt.', event)">
+                <div class="card-icon">🧠</div>
+                <div class="card-content">
+                    <h3>Quy tắc 20 – 20 – 20 cho mắt và đầu óc</h3>
+                    <span class="duration-tag">20 giây</span>
+                    <p>Giúp mắt đỡ mỏi và cho đầu óc nghỉ ngơi</p>
+                </div>
+            </div>
+
+            <!-- Bài tập 6: Viết 3 điều biết ơn -->
+            <div class="energy-card" id="card-gratitude"
+                onclick="selectSimpleExercise('Viết 3 điều biết ơn', '2 phút', 'Nghĩ về 3 điều nhỏ nhặt khiến bạn mỉm cười hôm nay và ghi nhớ chúng trong lòng.', event)">
+                <div class="card-icon">📝</div>
+                <div class="card-content">
+                    <h3>Viết 3 điều biết ơn</h3>
+                    <span class="duration-tag">2 phút</span>
+                    <p>Chú ý vào điều tích cực của não bộ.</p>
+                </div>
+            </div>
+
+            <!-- Bài tập 7: Đi bộ -->
+            <div class="energy-card" id="card-walk"
+                onclick="selectSimpleExercise('Đi bộ 5 phút không mang điện thoại', '5 phút', 'Bước chậm rãi, cảm nhận nhịp chân bước đi và không kiểm tra thông báo màn hình.', event)">
+                <div class="card-icon">🚶‍♀️</div>
+                <div class="card-content">
+                    <h3>Đi bộ 5 phút không mang điện thoại</h3>
+                    <span class="duration-tag">5 phút</span>
+                    <p>Giải phóng endorphin và ngắt luồng suy nghĩ lặp đi lặp lại</p>
+                </div>
+            </div>
+
+            <!-- Bài tập 8: Nghe nhạc -->
+            <div class="energy-card wide-card-st3" id="card-music"
+                onclick="selectSimpleExercise('Nghe bản nhạc không lời', '3 phút', 'Đeo tai nghe, nhắm mắt lại và thả lỏng theo giai điệu nhẹ nhàng.', event)">
+                <div class="card-icon">🎧</div>
+                <div class="card-content">
+                    <h3>Nghe một bản nhạc không lời yêu thích</h3>
+                    <p>Làm dịu, thay đổi tâm trạng</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- KHU VỰC THỰC HÀNH BÀI TẬP THỞ ĐỘNG -->
+        <div class="breathing-interactive-box">
+            <h2 id="breath-title" class="breath-title">Thở 4 – 7 – 8</h2>
+            <p id="breath-instruction" class="breath-instruction">Hít vào: 4 giây → Giữ hơi thở: 7 giây → Thở ra chậm: 8
+                giây.</p>
+
+            <!-- Vòng tròn hướng dẫn hít thở -->
+            <div class="circle-breath-container">
+                <div id="breath-circle" class="breath-circle">
+                    <span id="breath-status-text">Đang thở</span>
+                </div>
+            </div>
+
+            <!-- Nút Bật/Tắt nhịp thở -->
+            <button id="btn-toggle-breath" class="btn-dark-green" onclick="toggleBreathingGuide()">
+                Bật/ Tắt nhịp thở
+            </button>
+
+            <p id="breath-footer-tip" class="breath-tip">
+                Lặp lại 4 lần, kỹ thuật này giúp kích hoạt hệ thần kinh phó giao cảm, làm chậm nhịp tim và giảm cảm giác
+                lo âu tức thời.
+            </p>
+        </div>
+
+        <!-- BÀI TẬP HOẠT ĐỘNG KHÁC -->
+        <div class="other-activities-section">
+            <h3 class="section-heading-green">Hoạt động khác</h3>
+
+            <div class="activity-detail-card">
+                <h4>Quy tắc 20 – 20 – 20 cho mắt và đầu óc</h4>
+                <p>Sau 20 phút nhìn màn hình, hãy nhìn ra một vật cách xa 20 feet (~6m) trong 20 giây.<br>Giúp mắt đỡ
+                    mỏi và đầu óc có một khoảng nghỉ ngắn giữa các phiên học tập căng thẳng.</p>
+            </div>
+
+            <div class="activity-detail-card">
+                <h4>Đi bộ 5 phút không mang điện thoại</h4>
+                <p>Vận động nhẹ giúp giải phóng endorphin và ngắt luồng suy nghĩ lặp đi lặp lại (rumination) – nguyên
+                    nhân phổ biến khiến cảm xúc tiêu cực kéo dài.</p>
+            </div>
+        </div>
+
+        <!-- TRÍCH DẪN TRUYỀN CẢM HỨNG & NÚT TIẾP THEO -->
+        <div class="inspire-footer-box">
+            <blockquote class="green-quote">
+                “Một bước nhỏ hôm nay vẫn là một bước tiến.”
+            </blockquote>
+
+            <button class="btn-dark-green btn-large-next" onclick="goToNextStationFrom3()">
+                Sang trạm tiếp theo
+            </button>
+        </div>
+
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

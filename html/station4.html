@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm 4 - Góc chia sẻ / Bạn không ở một mình đâu</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="station-page-bg">
+
+    <div class="station-screen-wrapper">
+        <!-- Thanh Navigation phía trên -->
+        <header class="top-nav-bar">
+            <div class="logo-area">
+                <span class="logo-icon">💙</span>
+                <div class="logo-text">
+                    <span class="logo-title">Trạm Cảm Xúc</span>
+                    <span class="logo-sub">Nơi bạn dừng lại, lắng nghe và chăm sóc chính mình.</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">🏠 Trang chủ</a>
+                <a href="map.html">🗺️ 7 Trạm hành trình</a>
+                <a href="station4.html" class="active-nav">💬 Góc chia sẻ</a>
+                <a href="#" onclick="openStationModal(6)">📖 Nhật ký</a>
+                <div class="user-profile-chip">
+                    <span class="user-avatar">👧</span>
+                    <span id="welcome-user-name">Xin chào, minhanh</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Quay lại & Tiêu đề Trạm 4 -->
+        <div class="station-header-center">
+            <a href="map.html" class="back-link">← Quay lại Bản đồ trạm</a>
+            <span class="station-badge">Góc chia sẻ</span>
+            <h1 class="station-main-title blue-title">Bạn không ở một mình đâu</h1>
+            <p class="station-sub-desc">Đây là nơi những sinh viên khác cũng từng cảm thấy như bạn.<br>Hãy đọc, đồng
+                cảm, hoặc chia sẻ câu chuyện của riêng mình — hoàn toàn ẩn danh.</p>
+        </div>
+
+        <!-- BẢNG QUY TẮC CỘNG ĐỒNG -->
+        <div class="rules-card-box">
+            <h3 class="rules-title">Quy tắc ✍️</h3>
+            <ul class="rules-list">
+                <li>Không phán xét, không chỉ trích câu chuyện của người khác</li>
+                <li>Không chia sẻ thông tin cá nhân (tên thật, số điện thoại, lớp...)</li>
+                <li>Không đưa ra lời khuyên y tế / chẩn đoán tâm lý</li>
+                <li>Nếu đọc được nội dung có dấu hiệu nguy hiểm, hãy dùng nút <strong>"Báo cáo & Kết nối hỗ
+                        trợ"</strong></li>
+            </ul>
+        </div>
+
+        <!-- KHUNG SOẠN THẢO VÀ GỬI TÂM TƯ -->
+        <div class="share-box-container">
+            <h3 class="share-box-heading">Chia sẻ tâm tư của bạn (Ẩn danh)</h3>
+            <textarea id="user-share-input" class="share-textarea"
+                placeholder="Nếu có thể nhắn nhủ một câu cho các bạn sinh viên đang mệt mỏi, bạn sẽ nói gì? ..."></textarea>
+
+            <div class="share-action-row">
+                <button class="btn-submit-share" onclick="submitAnonymousShare()">
+                    Gửi tin ẩn danh
+                </button>
+            </div>
+        </div>
+
+        <!-- THÔNG BÁO SAU KHI GỬI -->
+        <div class="success-notice-box" id="success-notice" style="display: none;">
+            <p>Câu chuyện của bạn đã được chia sẻ ẩn danh. Có thể sẽ có ai đó đọc được và thấy mình không đơn độc —
+                giống như cách bạn đang đọc những dòng này vậy.</p>
+        </div>
+
+        <!-- DANH SÁCH CÁC BÀI ĐĂNG CỦA CỘNG ĐỒNG (HIỂN THỊ ĐỘNG) -->
+        <!-- DANH SÁCH CÁC BÀI ĐĂNG CỦA CỘNG ĐỒNG -->
+        <div class="community-feed" id="community-feed-list">
+            <!-- Bài đăng sẽ được render động bằng JavaScript -->
+        </div>
+
+        <!-- Nút Xem thêm danh sách bài viết -->
+        <div class="load-more-container" id="load-more-box" style="text-align: center; margin: 30px 0;">
+            <button class="btn-load-more" onclick="loadMorePosts()">Xem thêm</button>
+        </div>
+        <!-- NÚT ĐIỀU HƯỚNG SANG TRẠM 5 -->
+        <div class="next-station-row" style="text-align: center; margin-top: 40px; padding-bottom: 30px;">
+            <button class="btn-next-station" onclick="goToNextStationFrom4()"
+                style="background: #3b82f6; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); transition: 0.2s;">
+                Tiếp tục hành trình đến Trạm 5 ➔
+            </button>
+        </div>
+
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

@@ -1515,3 +1515,40 @@ iframe {
         box-sizing: border-box !important;
     }
 }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box !important;
+}
+
+img,
+video,
+iframe {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+@media screen and (max-width: 768px) {
+
+    html,
+    body {
+        width: 100% !important;
+        overflow-x: hidden !important;
+        font-size: 14px !important;
+    }
+
+    div,
+    section,
+    main,
+    header,
+    footer,
+    .container,
+    .card,
+    .wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}

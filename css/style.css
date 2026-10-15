@@ -1394,3 +1394,124 @@ body {
     border-color: #3b82f6;
     transform: scale(1.05);
 }
+
+/* ==========================================
+   TOAN BO CODE FIX MOBILE (RESPONSIVE)
+   ========================================== */
+
+/* Thêm thuộc tính box-sizing toàn cục để không bị tràn viền */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Đảm bảo hình ảnh và khung chứa không bao giờ vượt quá chiều rộng màn hình */
+img,
+video,
+canvas,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tối ưu riêng cho các thiết bị di động (Màn hình dưới 768px) */
+@media screen and (max-width: 768px) {
+
+    /* Tránh cuộn ngang trang web */
+    html,
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Thu nhỏ cỡ chữ chung để không bị ép chữ hay xuống dòng vô lý */
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* Tự động ngắt chữ dài/link dài nếu quá khổ */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    a,
+    button {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Chỉnh kích thước tiêu đề gọn lại trên di động */
+    h1 {
+        font-size: 1.8rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.2rem !important;
+    }
+
+    /* Chuyển các Container, Card, Main content sang dạng tự co giãn */
+    .container,
+    .main-content,
+    .card,
+    .wrapper,
+    .box,
+    header,
+    footer,
+    section {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Chuyển Flexbox / Grid dạng hàng ngang thành hàng dọc trên điện thoại */
+    .row,
+    .flex-container,
+    .grid-container,
+    nav,
+    .menu,
+    .btn-group {
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* Tối ưu lại kích thước nút bấm cho dễ nhấn bằng tay */
+    button,
+    .btn,
+    input[type="submit"],
+    input[type="button"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px 20px !important;
+        font-size: 1rem !important;
+        display: block !important;
+        margin: 8px 0 !important;
+    }
+
+    /* Tối ưu ô nhập liệu (Input, Textarea) */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+        width: 100% !important;
+        font-size: 16px !important;
+        /* Đặt 16px để iPhone không tự động zoom vào ô nhập */
+        box-sizing: border-box !important;
+    }
+}
